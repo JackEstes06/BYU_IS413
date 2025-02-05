@@ -7,3 +7,6 @@
 [submodule "Missions/Mission4"]
 	path = Missions/Mission4
 	url = git@github.com:sand20man/Mission4.git
+[submodule "Missions/BYU_IS413_Mission05"]
+	path = Missions/BYU_IS413_Mission05
+	url = git@github.com:JackEstes06/BYU_IS413_Mission05.git
