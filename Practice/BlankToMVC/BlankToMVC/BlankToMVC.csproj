@@ -7,7 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Include="wwwroot\index.html" />
+      <Folder Include="wwwroot\lib\bootstrap\dist\" />
+      <Folder Include="wwwroot\lib\jquery\dist\" />
     </ItemGroup>
 
 </Project>
