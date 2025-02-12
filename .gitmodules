@@ -1,12 +1,15 @@
-[submodule "Missions/BYU_IS413_Mission02"]
-	path = Missions/BYU_IS413_Mission02
+[submodule "Missions/Mission02_Estes"]
+	path = Missions/Mission02_Estes
 	url = git@github.com:JackEstes06/BYU_IS413_Mission02.git
-[submodule "Missions/BYU_IS413_Mission03"]
-	path = Missions/BYU_IS413_Mission03
+[submodule "Missions/Mission03_Estes"]
+	path = Missions/Mission03_Estes
 	url = git@github.com:JackEstes06/BYU_IS413_Mission03.git
 [submodule "Missions/Mission4"]
 	path = Missions/Mission4
 	url = git@github.com:sand20man/Mission4.git
-[submodule "Missions/BYU_IS413_Mission05"]
-	path = Missions/BYU_IS413_Mission05
+[submodule "Missions/Mission05_Estes"]
+	path = Missions/Mission05_Estes
 	url = git@github.com:JackEstes06/BYU_IS413_Mission05.git
+[submodule "Missions/Mission06_Estes"]
+	path = Missions/Mission06_Estes
+	url = git@github.com:JackEstes06/BYU_IS_413_Mission06.git
