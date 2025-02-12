@@ -4,8 +4,8 @@
 [submodule "Missions/Mission03_Estes"]
 	path = Missions/Mission03_Estes
 	url = git@github.com:JackEstes06/BYU_IS413_Mission03.git
-[submodule "Missions/Mission4"]
-	path = Missions/Mission4
+[submodule "Missions/Mission04_Group10"]
+	path = Missions/Mission04_Group10
 	url = git@github.com:sand20man/Mission4.git
 [submodule "Missions/Mission05_Estes"]
 	path = Missions/Mission05_Estes
