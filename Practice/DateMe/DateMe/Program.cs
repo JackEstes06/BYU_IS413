@@ -1,7 +1,14 @@
+using DateMe.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DatingApplicationContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["ConnectionStrings:SQLiteConnection"]);
+});
 
 var app = builder.Build();
 

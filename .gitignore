@@ -10,6 +10,8 @@ obj/
 *.user
 *.userosscache
 *.sln.docstates
+*.sqlite-shm
+*sqlite-wal
 
 # Ignore build outputs
 *.dll

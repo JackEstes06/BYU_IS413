@@ -6,6 +6,13 @@ namespace DateMe.Controllers;
 
 public class HomeController : Controller
 {
+    private DatingApplicationContext _context;
+    
+    public HomeController(DatingApplicationContext context)
+    {
+        _context = context;
+    }
+
     public IActionResult Index()
     {
         return View();
@@ -20,6 +27,9 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult FillOutApplication(Application response)
     {
+        _context.Applications.Add(response);
+        _context.SaveChanges();
+        
         return View("Confirmation", response);
     }
 }
