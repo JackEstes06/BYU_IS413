@@ -1,5 +1,15 @@
 @{
 }
 
-<h1>Application Received</h1>
-<p>Thank you! But really thank me for considering you.</p>
+@if (!Model.creeperStalkerStatus)
+{
+    <h1>Application Received</h1>
+    <h3>Thank you, @Model.firstname!</h3>
+    <p>But really thank me for considering you.</p>
+}
+else
+{
+    <h1>Application Received</h1>
+    <h3>Oh, shoot. My bad. I actually forgot that I'm already in a relationship.</h3>
+    <p>But I actually have a friend for you named Bryce Carter 0w0</p>
+}

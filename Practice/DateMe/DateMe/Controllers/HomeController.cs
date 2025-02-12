@@ -20,6 +20,6 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult FillOutApplication(Application response)
     {
-        return View("Confirmation");
+        return View("Confirmation", response);
     }
 }
