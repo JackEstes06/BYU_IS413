@@ -1,4 +1,4 @@
-namespace _04_DateMe.Models;
+namespace DateMe.Models;
 
 public class ErrorViewModel
 {

@@ -1,0 +1,35 @@
+@model Application
+@{
+    ViewData["Title"] = "Application";
+}
+
+<h1>Dating Application</h1>
+
+<form method="post">
+    <label asp-for="firstname">First Name</label>
+    <input asp-for="firstname"/>
+    <br/>
+    <label asp-for="lastname">Last Name</label>
+    <input asp-for="lastname"/>
+    <br/>
+    <label asp-for="age">Age</label>
+    <input asp-for="age"/>
+    <br/>
+    <label asp-for="phone">Phone</label>
+    <input asp-for="phone"/>
+    <br/>
+    <label asp-for="major">Major</label>
+    <input asp-for="major"/>
+    <br/>
+    <label asp-for="occupation">Ocupation</label>
+    <input asp-for="occupation"/>
+    <br/>
+    <label asp-for="creeperStalkerStatus">Are you a creeper and/or stalker?</label>
+    <select asp-for="creeperStalkerStatus">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
+    <br/>
+    
+    <button type="submit">Submit Application</button>
+</form>
