@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DateMe.Models;
 
@@ -17,7 +18,9 @@ public class Application
     
     public string phone { get; set; }
     
-    public string major { get; set; }
+    [ForeignKey("MajorID")]
+    public int majorID { get; set; }
+    public Major major { get; set; }
     
     public string occupation { get; set; }
     

@@ -6,6 +6,8 @@
 <h1>Dating Application</h1>
 
 <form method="post">
+    <input type="hidden" asp-for="applicationId"/>
+    
     <label asp-for="firstname">First Name</label>
     <input asp-for="firstname"/>
     <br/>
@@ -18,8 +20,14 @@
     <label asp-for="phone">Phone</label>
     <input asp-for="phone"/>
     <br/>
-    <label asp-for="major">Major</label>
-    <input asp-for="major"/>
+    <label asp-for="majorID">Major</label>
+    @* <input asp-for="major"/> *@
+    <select asp-for="majorID">
+        @foreach (Major m in ViewBag.Majors)
+        {
+            <option value="@m.MajorID">@m.MajorName</option>
+        }
+    </select>
     <br/>
     <label asp-for="occupation">Ocupation</label>
     <input asp-for="occupation"/>
@@ -30,6 +38,8 @@
         <option value="false">No</option>
     </select>
     <br/>
-    
+
     <button type="submit">Submit Application</button>
+    
+    <div asp-validation-summary="All"></div>
 </form>

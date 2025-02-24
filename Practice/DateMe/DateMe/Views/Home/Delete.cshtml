@@ -1,0 +1,13 @@
+@{
+}
+
+@model Application
+
+<h2>Confirm Deletion</h2>
+<h3>@Model.lastname, @Model.firstname</h3>
+<form method="post">
+    <input type="hidden" asp-for="@Model.applicationId"/>
+    
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-info" asp-controller="Home" asp-action="Waitlist">Cancel</a>
+</form>
