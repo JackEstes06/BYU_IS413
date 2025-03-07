@@ -1,6 +1,7 @@
 # Ignore build folders
 bin/
 obj/
+node_modules/
 
 # Ignore user-specific files
 .vs/
