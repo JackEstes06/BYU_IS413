@@ -3,21 +3,27 @@ import { Project } from './types/Project';
 
 function ProjectList() {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [pageSize, setPageSize] = useState<number>(10);
+  const [pageNum, setPageNum] = useState<number>(1);
+  const [totalItems, setTotalItems] = useState<number>(0);
+  const [totalPages, setTotalPages] = useState<number>(0);
 
   useEffect(() => {
     const fetchFood = async () => {
       const response = await fetch(
-        'https://localhost:5000/api/Water/AllProjects'
+        `https://localhost:5000/api/Water/AllProjects?cardsPerPage=${pageSize}&pageNum=${pageNum}`
       );
       const data = await response.json();
-      setProjects(data);
+      setProjects(data.projects);
+      setTotalItems(data.numProjects);
+      setTotalPages(Math.ceil(totalItems / pageSize));
 
       console.log(`Response: ${response}`);
       console.log(`Data: ${data}`);
     };
 
     fetchFood();
-  }, []);
+  }, [pageSize, pageNum, totalItems]);
 
   return (
     <>
@@ -25,18 +31,71 @@ function ProjectList() {
       <br />
       {projects.map((p) => {
         return (
-          <div id="projectCard">
-            <h3>{p.projectName}</h3>
-            <ul>
-              <li>Project Type: {p.projectType}</li>
-              <li>Project Type: {p.projectRegionalProgram}</li>
-              <li>Project Type: {p.projectImpact}</li>
-              <li>Project Type: {p.projectPhase}</li>
-              <li>Project Type: {p.projectFunctionalityStatus}</li>
-            </ul>
+          <div id="projectCard" className="card" key={p.projectId}>
+            <h3 className="card-title">{p.projectName}</h3>
+            <div className="card-body">
+              <ul className="list-unstyled">
+                <li>
+                  <strong>Project Type: </strong>
+                  {p.projectType}
+                </li>
+                <li>
+                  <strong>Regional Program: </strong>
+                  {p.projectRegionalProgram}
+                </li>
+                <li>
+                  <strong>Project Impact: </strong>
+                  {p.projectImpact}
+                </li>
+                <li>
+                  <strong>Project Phase: </strong>
+                  {p.projectPhase}
+                </li>
+                <li>
+                  <strong>Project Status: </strong>
+                  {p.projectFunctionalityStatus}
+                </li>
+              </ul>
+            </div>
           </div>
         );
       })}
+
+      <br />
+      <button disabled={pageNum === 1} onClick={() => setPageNum(pageNum - 1)}>
+        Previous
+      </button>
+      {[...Array(totalPages)].map((_, index) => (
+        <button
+          key={index + 1}
+          onClick={() => setPageNum(index + 1)}
+          disabled={pageNum === index + 1}
+        >
+          {index + 1}
+        </button>
+      ))}
+      <button
+        disabled={pageNum === totalPages}
+        onClick={() => setPageNum(pageNum + 1)}
+      >
+        Next
+      </button>
+
+      <br />
+      <label>
+        Results per Page:
+        <select
+          value={pageSize}
+          onChange={(p) => {
+            setPageSize(Number(p.target.value));
+            setPageNum(1);
+          }}
+        >
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
+      </label>
     </>
   );
 }
