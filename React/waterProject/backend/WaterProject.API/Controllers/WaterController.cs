@@ -17,16 +17,22 @@ namespace WaterProject.API.Controllers
         }
 
         [HttpGet("AllProjects")]
-        public IActionResult GetProjects(int cardsPerPage = 5, int pageNum = 1)
+        public IActionResult GetProjects(int cardsPerPage = 5, int pageNum = 1,[FromQuery] List<string>? projectTypes = null)
         {
-            // Changes again
-            var projectsList = _context.Projects
+            var query = _context.Projects.AsQueryable();
+
+            if (projectTypes != null && projectTypes.Any())
+            {
+                query = query.Where(p => projectTypes.Contains(p.ProjectType));
+            }
+            
+            var numProjects = query.Count();
+
+            var projectsList = query
                 .Skip((pageNum - 1) * cardsPerPage)
                 .Take(cardsPerPage)
                 .ToList();
             
-            var numProjects = _context.Projects.Count();
-
             var projectData = new
             {
                 Projects = projectsList,
@@ -35,14 +41,28 @@ namespace WaterProject.API.Controllers
             
             return Ok(projectData);
         }
-        
-        [HttpGet("FunctionalProjects")]
-        public IEnumerable<Project> GetFunctionalProjects()
+
+        [HttpGet("GetProjectTypes")]
+        public IActionResult GetProjectsTypes()
         {
-            var projectsList = _context.Projects
-                .Where(x => x.ProjectFunctionalityStatus == "Functional")
+            var projectTypes = _context.Projects
+                .Select(x => x.ProjectType)
+                .Distinct()
                 .ToList();
-            return projectsList;
+            
+            return Ok(projectTypes);
         }
+
+        // EXAMPLE OF OTHER ROUTE CALLS
+        // --------------------------------------------
+        // [HttpGet("FunctionalProjects")]
+        // public IEnumerable<Project> GetFunctionalProjects()
+        // {
+        //     var projectsList = _context.Projects
+        //         .Where(x => x.ProjectFunctionalityStatus == "Functional")
+        //         .ToList();
+        //     return projectsList;
+        // }
+        // --------------------------------------------
     }
 }
