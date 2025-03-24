@@ -22,3 +22,6 @@
 [submodule "Missions/Mission10_Estes"]
     path = Missions/Mission10_Estes
     url = git@github.com:JackEstes06/BYU_IS_413_Mission10.git
+[submodule "Missions/Mission11_Estes"]
+	path = Missions/Mission11_Estes
+	url = git@github.com:JackEstes06/BYU_IS_413_Mission11.git
