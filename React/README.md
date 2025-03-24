@@ -9,7 +9,7 @@
 - add the following imports to the eslint.config.js file
 
 ```
-import prettier from 'eslint-config-prettier'
+import prettier from 'eslint-plugin-prettier'
 import eslintConfigPrettier from 'eslint-config-prettier'
 ```
 
@@ -37,6 +37,14 @@ import eslintConfigPrettier from 'eslint-config-prettier'
     'prettier/prettier': 'error'
   },
   ```
+- Add routing package
+  ```
+  npm install react-router-dom
+  ```
+- Add font awesome icons (not necessary)
+  ```
+  npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core
+  ```
 
 # .prettierrc.json content
 
@@ -50,4 +58,10 @@ import eslintConfigPrettier from 'eslint-config-prettier'
     "tabWidth": 2,
     "endOfLine": "auto"
 }
+```
+
+# Options to auto-update .NET backend on updates
+
+```
+dotnet watch run
 ```
