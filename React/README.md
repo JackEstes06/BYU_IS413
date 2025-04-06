@@ -65,3 +65,17 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 ```
 dotnet watch run
 ```
+
+# Publishing
+
+## Backend
+
+```
+dotnet publish -c Release -o ./publish
+```
+
+## Frontend
+
+```
+
+```
