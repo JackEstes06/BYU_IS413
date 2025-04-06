@@ -1,6 +1,7 @@
 import { Project } from '../types/Project';
 
-const API_URL = 'https://localhost:5000/api/Water';
+const API_URL =
+  'https://wareproject-estes-backend2-hngrb0g4chb3bhc0.centralus-01.azurewebsites.net/api/Water';
 
 interface FetchProjectsResponse {
   projects: Project[];
