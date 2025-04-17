@@ -1,7 +1,7 @@
 import { Entertainer } from '../types/Entertainer';
 
 const API_URL =
-  'https://estes-413final-backend-hqhxfvedfzhed6h4.centralus-01.azurewebsites.net';
+  'https://estes-413final-backend-hqhxfvedfzhed6h4.centralus-01.azurewebsites.net/Entertainer';
 
 // Get All Entertainers
 export const fetchEntertainers = async () => {
